@@ -1,18 +1,18 @@
 body {
-  background:#6600cc;
+  background:#820021;
   color:#0f0101;
   }
   
   .jumbotron {
-    background-image: url("../images/bio.jpg");
+    background-image: url("../images/bio2.jpg");
     background-size: 100% 100%;
     text-align: center;
   }
 .panel-heading {
-  background: #60dfed;}
-  
+  background: #ffffff;}
+
 .panel-body {
-    background: #60dfed;}
+    background: #ffffff;}
 
   select {
     color: #000000; 
@@ -21,6 +21,6 @@ h1 {
   background-color: #f3efefc4;
 }
 
-h3 {
+p {
   background-color: #f3efefc4;
 }
