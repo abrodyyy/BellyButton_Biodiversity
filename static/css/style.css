@@ -1,5 +1,6 @@
 body {
-    color:#f7f7f7;
+  background:#6600cc;
+  color:#0f0101;
   }
   
   .jumbotron {
@@ -7,3 +8,19 @@ body {
     background-size: 100% 100%;
     text-align: center;
   }
+.panel-heading {
+  background: #60dfed;}
+  
+.panel-body {
+    background: #60dfed;}
+
+  select {
+    color: #000000; 
+}
+h1 {
+  background-color: #f3efefc4;
+}
+
+h3 {
+  background-color: #f3efefc4;
+}
