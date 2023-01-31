@@ -1,5 +1,6 @@
 # BellyButton_Biodiversity
 Module 13: Plotly & Belly Button Biodiversity
+[Link to dashboard](https://abrodyyy.github.io/BellyButton_Biodiversity/)
 
 ## Background
 
