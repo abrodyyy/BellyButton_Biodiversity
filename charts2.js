@@ -37,7 +37,6 @@ function buildMetadata(sample) {
     // Filter the data for the object with the desired sample number
     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
     var result = resultArray[0];
-   
     // Use d3 to select the panel with id of `#sample-metadata`
     var PANEL = d3.select("#sample-metadata");
 
@@ -65,10 +64,11 @@ function buildCharts(sample) {
     var samplesArray = data.samples;
 
     // 1.4. Create a variable that filters the samples for the object with the desired sample number.
-    var desiredSamples = samplesArray.filter(sampleObj => sampleObj.id == sample);
+    var desiredSamples = samplesArray.filter(data => data.id == sample);
     
     // 1.5. Create a variable that holds the first sample in the array.
     var firstSample = desiredSamples[0];
+    console.log(firstSample);
 
     // 1.6. Create variables that hold the otu_ids, otu_labels, and sample_values.
     var ids = firstSample.otu_ids;
@@ -78,7 +78,10 @@ function buildCharts(sample) {
     // 1.7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order 
     // so the otu_ids with the most bacteria are last. 
+    console.log(ids);
+    
     var yticks = ids.slice(0,10).map(id => "OTU " + id).reverse();
+    console.log(yticks);
 
     // 1.8. Create the trace for the bar chart. 
     var barData = [{
@@ -87,7 +90,7 @@ function buildCharts(sample) {
       text: labels.slice(0,10).reverse(),
       type: "bar",
       orientation: "h",
-      marker: { color: "royalblue"}
+      marker: { color: "steelblue"}
     }];
 
     // 1.9. Create the layout for the bar chart. 
@@ -107,8 +110,8 @@ function buildCharts(sample) {
       x: ids,
       y: values,
       text: labels,
-      mode: "markers",
-      marker: {size: values, colors: ids,colorscale: "balance",}
+      mode: 'markers',
+      marker: {size: values, color: ids, colorscale: 'balance',}
 
     }];
 
@@ -128,17 +131,17 @@ function buildCharts(sample) {
     // Deliverable 3: //
     
     // 3.1. Create a variable that filters the metadata array for the object with the desired sample number.
-    var desiredMetadataArray = data.metadata.filter(sampleObj => sampleObj.id == sample);
+    var desiredMetadataArray = data.metadata.filter(data => data.id == sample);
     
     // 3.2. Create a variable that holds the first sample in the metadata array.
-    var metadataSample = desiredMetadataArray[0];
+    var firstMeta = desiredMetadataArray[0];
 
     // 3.3. Create a variable that holds the washing frequency.
-    var washingFreq = metadataSample.washingFreq;
+    var wFreq = firstMeta.wfreq 
 
     // 3.4. Create the trace for the gauge chart.
     var gaugeData = [{
-      value: washingFreq,
+      value: wFreq,
       type: "indicator",
       mode: "gauge+number",
       title: { text: "<b> Belly Button Washing Frequency </b><br> Scrubs per Week" },
@@ -146,11 +149,11 @@ function buildCharts(sample) {
         axis: { range: [null, 10], tickvals: [0, 2, 4, 6, 8, 10], ticktext: [0, 2, 4, 6, 8, 10], tickwidth: 1, tickcolor: "black"},
         bar: { color: "black" },
         steps: [
-          { range: [0, 2], color: "royalblue" },
-          { range: [2, 4], color: "lightblue" },
-          { range: [4, 6], color: "pink" },
-          { range: [6, 8], color: "red" },
-          { range: [8, 10],color: "firebrick" }
+          { range: [0, 2], color: "steelblue" },
+          { range: [2, 4], color: "lightsteelblue" },
+          { range: [4, 6], color: "linen" },
+          { range: [6, 8], color: "firebrick" },
+          { range: [8, 10],color: "maroon" }
         ] 
       }
     }];
